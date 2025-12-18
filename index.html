@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acnol Bowling Challenge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1>Acnol Bowling Challenge</h1>
+      <p>Defend your target with precision bowling, special deliveries, and germ-busting wickets.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel scoreboard">
+      <div class="scoreboard__row">
+        <div class="score">
+          <span class="label">Target</span>
+          <div class="value" id="target-value">36</div>
+        </div>
+        <div class="score">
+          <span class="label">Runs</span>
+          <div class="value" id="runs-value">0</div>
+        </div>
+        <div class="score">
+          <span class="label">Wickets</span>
+          <div class="value" id="wickets-value">0 / 6</div>
+        </div>
+        <div class="score">
+          <span class="label">Balls</span>
+          <div class="value" id="balls-value">0 / 18</div>
+        </div>
+      </div>
+      <div class="scoreboard__row">
+        <div class="score">
+          <span class="label">Special Balls</span>
+          <div class="value" id="special-value">1 / 2</div>
+        </div>
+        <div class="score">
+          <span class="label">Bonus Points</span>
+          <div class="value" id="points-value">0</div>
+        </div>
+        <div class="score">
+          <span class="label">Over Status</span>
+          <div class="value" id="over-value">Over 1 • Maiden in play</div>
+        </div>
+      </div>
+      <div class="status" id="status-message">Choose a line and length, then bowl to defend your target.</div>
+      <div class="status status--highlight" id="milestone-message">Welcome! Your first Acnol Clean Bowled Ball is ready.</div>
+    </section>
+
+    <section class="panel controls">
+      <h2>Bowling Controls</h2>
+      <label class="input-group">
+        <span>Preset Target (runs)</span>
+        <input type="number" id="target-input" min="12" max="72" step="2" value="36" />
+      </label>
+
+      <div class="control-group">
+        <span class="control-label">Line</span>
+        <div class="chip-group" id="line-group">
+          <button class="chip chip--active" data-line="off">Off</button>
+          <button class="chip" data-line="middle">Middle</button>
+          <button class="chip" data-line="leg">Leg</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <span class="control-label">Length</span>
+        <div class="chip-group" id="length-group">
+          <button class="chip chip--active" data-length="good">Good</button>
+          <button class="chip" data-length="yorker">Yorker</button>
+          <button class="chip" data-length="short">Short</button>
+        </div>
+      </div>
+
+      <label class="input-group checkbox">
+        <input type="checkbox" id="special-toggle" />
+        <span>Use Acnol Clean Bowled Ball</span>
+        <small>99.9% wicket chance • +50 points on success</small>
+      </label>
+
+      <div class="button-row">
+        <button id="bowl-button" class="btn btn--primary">Bowl Delivery</button>
+        <button id="reset-button" class="btn btn--ghost">Reset Match</button>
+      </div>
+    </section>
+
+    <section class="panel field">
+      <div class="stadium">
+        <div class="crowd">
+          <div class="card">A</div>
+          <div class="card">C</div>
+          <div class="card">N</div>
+          <div class="card">O</div>
+          <div class="card">L</div>
+        </div>
+        <div class="pitch">
+          <div class="fielder fielder--left">🦠</div>
+          <div class="fielder fielder--right">🦠</div>
+          <div class="fielder fielder--deep">🦠</div>
+          <div class="bowler">🎯</div>
+          <div class="batsman" id="batsman">🏏</div>
+          <div class="ball" id="ball"></div>
+        </div>
+      </div>
+      <div class="legend">
+        <div><span class="badge">🎯</span> Bowler (you)</div>
+        <div><span class="badge">🏏</span> Germ Batsman</div>
+        <div><span class="badge">🦠</span> Fielders (germ avatars)</div>
+        <div><span class="badge">🧴</span> Acnol fan cards in the crowd</div>
+      </div>
+    </section>
+
+    <section class="panel log">
+      <h2>Ball-by-ball Log</h2>
+      <ul id="log-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
